@@ -1,0 +1,39 @@
+<div class="flex flex-col justify-center items-center gap-y-2.5">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5  border rounded-xl py-2">
+    <h1 class="font-bold text-xl text-red-600 text-center block lg:hidden">{{ pokemon().name }}</h1>
+    <div class="flex flex-col items-center gap-y-5">
+      <div #slides class="flex overflow-hidden scroll-smooth w-[250px] h-[250px]">
+        <img [alt]="pokemon().name" [ngSrc]="pokemon().image.regular" height="250" priority width="250"/>
+        <img [alt]="pokemon().name" [ngSrc]="pokemon().image.shiny" height="250" priority width="250"/>
+      </div>
+      <div>
+        <button (click)="toggleImage()" class="border rounded py-1 px-2 disabled:bg-gray-100">{{ image() }}</button>
+      </div>
+    </div>
+    <div class="flex justify-center flex-col gap-y-2.5 px-5 pb-3 lg:p-0">
+      <div class="hidden lg:block">
+        <h1 class="font-bold text-xl text-red-600">{{ pokemon().name }}</h1>
+      </div>
+      <div class="flex gap-x-1.5">
+        <span class="font-bold">Types :</span>
+        @for (type of pokemon().types; track type.name) {
+          <ul class="inline-flex justify-center items-center">
+            <li>
+              <img class="rounded-full cursor-help"
+                   [ngSrc]="type.image"
+                   width="24" height="24"
+                   [title]="type.name"
+                   [alt]="type.name">
+            </li>
+          </ul>
+        }
+      </div>
+      <div>
+        <span class="font-bold">Taille :</span> {{ pokemon().height }}
+      </div>
+      <div>
+        <span class="font-bold">Poids :</span> {{ pokemon().weight }}
+      </div>
+    </div>
+  </div>
+</div>

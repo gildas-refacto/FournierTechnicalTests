@@ -1,0 +1,11 @@
+<div class="flex p-2.5 justify-center w-full">
+  <div class="flex items-center flex-col gap-y-5 lg:w-1/2 w-full">
+    <button (click)="back()"
+            class="border rounded py-1 px-2 hover:bg-gray-100 transition-colors duration-300">
+      Retour
+    </button>
+    @if (pokemon()) {
+      <app-poke-details [pokemon]="pokemon()"/>
+    }
+  </div>
+</div>

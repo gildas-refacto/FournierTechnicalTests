@@ -1,0 +1,13 @@
+<div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    @for (pokemon of pokemonsList(); track pokemon.id) {
+      <a [routerLink]="['/pokemon', pokemon.id]"
+         class="cursor-pointer border rounded p-2.5 flex flex-col justify-center items-center gap-y-2.5 hover:shadow-md  transition-shadow duration-300">
+        <div class="size-28 lg:size-40 relative">
+          <img [ngSrc]="pokemon.image" [alt]="pokemon.name" priority fill/>
+        </div>
+        {{ pokemon.name }}
+      </a>
+    }
+  </div>
+</div>

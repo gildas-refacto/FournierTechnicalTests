@@ -1,0 +1,12 @@
+<div class="flex gap-x-2.5 my-2.5 justify-center">
+  <button (click)="currentPage.set( currentPage() - 1)"
+          [disabled]="currentPage() === 1"
+          class="hover:bg-gray-100 transition-colors duration-300 border rounded py-1 px-2 disabled:bg-gray-200">
+    Précédent
+  </button>
+  <button (click)="currentPage.set( currentPage() + 1)"
+          [disabled]="currentPage() === nbPage()"
+          class="hover:bg-gray-100 transition-colors duration-300 border rounded py-1 px-2 disabled:bg-gray-200">
+    Suivant
+  </button>
+</div>

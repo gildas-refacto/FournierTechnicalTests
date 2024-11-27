@@ -1,0 +1,14 @@
+<div class="flex p-2.5 flex-col w-full items-center">
+  @if (pokemonsList()) {
+    <app-search-bar placeholder="Rechercher un pokémon..."
+                    [(searchValue)]="searchValue"
+                    class="w-full sm:w-3/6"/>
+    @if (pokemonsList().total > 1) {
+      <app-pagination [(currentPage)]="currentPage"
+                      [totalPages]="pokemonsList().total"
+                      [limit]="pokemonsList().limit"/>
+    }
+    <app-poke-list [pokemonsList]="pokemonsList().items"
+                   class="my-2.5"/>
+  }
+</div>
